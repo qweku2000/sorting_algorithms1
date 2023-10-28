@@ -1,6 +1,5 @@
+#include <stdlib.h>
 #include <stdio.h>
-0;10;1c#include <stdlib.h>
-
 
 
 /**
@@ -32,3 +31,6 @@ void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void SplitMerge(size_t start, size_t end, int *array, int *copy);
 void Merge(size_t start, size_t middle, size_t end, int *dest, int *source);
+vvoid merge_sort(int *array, size_t size);
+void TDSplitMerge(size_t start, size_t end, int *array, int *copy);
+void TDMerge(size_t start, size_t middle, size_t end, int *dest, int *source);
