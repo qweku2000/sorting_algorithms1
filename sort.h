@@ -34,3 +34,6 @@ void Merge(size_t start, size_t middle, size_t end, int *dest, int *source);
 vvoid merge_sort(int *array, size_t size);
 void TDSplitMerge(size_t start, size_t end, int *array, int *copy);
 void TDMerge(size_t start, size_t middle, size_t end, int *dest, int *source);
+void quick_sort_hoare(int *array, size_t size);
+void quicksort(int *array, ssize_t lo, ssize_t hi, size_t size);
+size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size);
