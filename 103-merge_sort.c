@@ -1,7 +1,9 @@
 #include "sort.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * Merge - sorts and merges the sub arrays in source
+ * TDMerge - sorts and merges the sub arrays in source
  * @start: starting index (inclusive) for the left sub array
  * @middle: end index (exclusive) for the left sub array and
  * starting index (inclusive) for the right sub array
@@ -11,7 +13,7 @@
  *
  * Return: void
  */
-void Merge(size_t start, size_t middle, size_t end, int *dest, int *source)
+void TDMerge(size_t start, size_t middle, size_t end, int *dest, int *source)
 {
 	size_t i, j, k;
 
@@ -40,7 +42,7 @@ void Merge(size_t start, size_t middle, size_t end, int *dest, int *source)
 }
 
 /**
- * SplitMerge - recursively splits the array and merges the sorted arrays
+ * TDSplitMerge - recursively splits the array and merges the sorted arrays
  * @start: starting index (inclusive)
  * @end: end index (exclusive)
  * @array: the array to sort
@@ -48,16 +50,16 @@ void Merge(size_t start, size_t middle, size_t end, int *dest, int *source)
  *
  * Return: void
  */
-void SplitMerge(size_t start, size_t end, int *array, int *copy)
+void TDSplitMerge(size_t start, size_t end, int *array, int *copy)
 {
 	size_t middle;
 
 	if (end - start < 2)
 		return;
 	middle = (start + end) / 2;
-	SplitMerge(start, middle, array, copy);
-	SplitMerge(middle, end, array, copy);
-	Merge(start, middle, end, array, copy);
+	TDSplitMerge(start, middle, array, copy);
+	TDSplitMerge(middle, end, array, copy);
+	TDMerge(start, middle, end, array, copy);
 	for (middle = start; middle < end; middle++)
 		copy[middle] = array[middle];
 }
@@ -82,6 +84,6 @@ void merge_sort(int *array, size_t size)
 		return;
 	for (i = 0; i < size; i++)
 		copy[i] = array[i];
-	SplitMerge(0, size, array, copy);
+	TDSplitMerge(0, size, array, copy);
 	free(copy);
 }
